@@ -1,0 +1,2 @@
+1,1,Administrador;
+1;Yo;18/02/2000;Estudiante;
