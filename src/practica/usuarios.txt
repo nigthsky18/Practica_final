@@ -1,2 +1,4 @@
 1,1,Administrador;
-1;Yo;18/02/2000;Estudiante;
+mariana_montoya,1,Administrador;
+julian123;Julian213*;Julian Higuita;12/12/2000;Estudiante;
+camijdb;Juan2023*;Camilo Ramirez;31/12/1984;Administrador;

@@ -12,8 +12,9 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class ManejoArchivo {
+
     private static final String archivo = "src/practica/usuarios.txt";
-     private String usuario;
+    private String usuario;
     private String contraseña;
     private String tipo;
 
@@ -25,13 +26,12 @@ public class ManejoArchivo {
         this.contraseña = contraseña;
         this.tipo = tipo;
     }
-    
 
-   public void escibirRegistro(Registro registro) {
+    public void escibirRegistro(Registro registro) {
         try ( BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true)))
         {
 
-            String datos = registro.getDni() + ";" + registro.getNombre() + ";" + registro.getFechaNacimiento()+ ";" + registro.getCargo() + ";";
+            String datos = registro.getNombreusuario() + ";" + registro.getPassword() + ";" + registro.getNombre() + ";" + registro.getFechaNacimiento() + ";" + registro.getCargo() + ";";
             escritor.write(datos);
             escritor.newLine();
             JOptionPane.showMessageDialog(null, "Vendedor registrado correctamente", "Usuario registrado", 3);
@@ -42,28 +42,44 @@ public class ManejoArchivo {
             JOptionPane.showMessageDialog(null, "Error al guardar", "Error", 0);
         }
     }
-   public boolean validarRegistro(Registro registro) {
-        String dni = registro.getDni();
+
+    public boolean validarRegistro(Registro registro) {
+        String dni = registro.getId();
+        String usuario = registro.getNombreusuario();
         String nombre = registro.getNombre();
         String fechaNacimiento = registro.getFechaNacimiento();
         String cargo = registro.getCargo();
-        
-        // Validar que los campos no estén vacíos y que la fecha de nacimiento tenga el formato dd/MM/yyyy
-        if (dni.isEmpty() || nombre.isEmpty() || fechaNacimiento.isEmpty() || cargo.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        if (!fechaNacimiento.matches("^\\d{2}/\\d{2}/\\d{4}$")) {
-            JOptionPane.showMessageDialog(null, "Formato de fecha incorrecto (dd/MM/yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        String contrasena= registro.getPassword();
 
-        // Otras validaciones que puedas necesitar para la contraseña o campos adicionales
+        
+        if (dni.isEmpty() || nombre.isEmpty() || fechaNacimiento.isEmpty() || cargo.isEmpty() || usuario.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Error",2);
+            return false;
+        }
+        if (!nombre.matches("^[a-zA-Z]+(\\s[a-zA-Z]+)*$"))
+        {
+            JOptionPane.showMessageDialog(null, "Nombre incorrecto", "Error", 2);
+            return false;
+        }
+        if (!fechaNacimiento.matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$"))
+        {
+            JOptionPane.showMessageDialog(null, "Formato de fecha incorrecto  (DD/MM/AAAA)", "Error",2);
+            return false;
+        }
+        if (usuario.matches(".*\\s+.*"))
+        {
+            JOptionPane.showMessageDialog(null, "El nombre de usuario no puede contener espacios en blanco", "Error", 2);
+            return false;
+        }
+        if (contrasena.length() < 8 || !contrasena.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,15}$")) {
+        JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 8 caracteres con al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=)", "Error", 2);
+        return false;
+    }
 
         return true;
     }
-   
+
     public boolean validarIngreso(int usuarioIndex, int contraseñaIndex, int tipoIndex) {
         try
         {
