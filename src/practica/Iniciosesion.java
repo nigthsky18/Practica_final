@@ -171,8 +171,9 @@ public class Iniciosesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadosActionPerformed
-        Registro registro = new  Registro();
-        registro.setVisible(true);
+       RegistroInvitados invitado= new RegistroInvitados();
+       this.setVisible(false);
+       invitado.setVisible(true);
         
     }//GEN-LAST:event_btnInvitadosActionPerformed
 
@@ -236,7 +237,7 @@ private boolean validarDatos() {
         if (nombre.isEmpty() || password.isEmpty())
         {
 
-            JOptionPane.showMessageDialog(null, "Por favor ingresa todos los datos.", "Vlidación", 2);
+            JOptionPane.showMessageDialog(null, "Por favor ingresa todos los datos.", "Validación", 2);
             return false; // Los campos están vacíos
         }
 

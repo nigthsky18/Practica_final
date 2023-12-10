@@ -30,6 +30,7 @@ public class Registro extends javax.swing.JInternalFrame {
         setVisible(true);
     }
 
+    
     private void initComponents() {
         JLabel dniLabel = new JLabel("Nombre de usuario:");
         dniLabel.setBounds(20, 20, 120, 25);
@@ -111,7 +112,7 @@ private void limpiarCampos() {
     }
 
     public String getId() {
-        return idField.toString();
+        return idField.getText();
     }
 
     public void setIdField(JTextField idField) {

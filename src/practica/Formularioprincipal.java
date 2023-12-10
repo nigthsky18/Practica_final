@@ -169,12 +169,27 @@ public String nombreUsuaruio;
         mnuEliminar.add(eliminarAdmin);
 
         eliminarProfesor.setText("Profesores");
+        eliminarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProfesorActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarProfesor);
 
         eliminarEstudiantes.setText("Estudiantes");
+        eliminarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarEstudiantes);
 
         eliminarInvitados.setText("Invitados");
+        eliminarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarInvitadosActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarInvitados);
 
         jMenuBar1.add(mnuEliminar);
@@ -191,12 +206,27 @@ public String nombreUsuaruio;
         mnuModificar.add(modificarAdmin);
 
         modificarProfesor.setText("Profesores");
+        modificarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarProfesorActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarProfesor);
 
         modificarEstudiantes.setText("Estudiantes");
+        modificarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarEstudiantes);
 
         modificarInvitados.setText("Invitados");
+        modificarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarInvitadosActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarInvitados);
 
         jMenuBar1.add(mnuModificar);
@@ -205,6 +235,11 @@ public String nombreUsuaruio;
         mnuCambiarpsw.setText("Cambiar contraseña");
 
         cambiarClave.setText("Cambiar mi contraseña");
+        cambiarClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarClaveActionPerformed(evt);
+            }
+        });
         mnuCambiarpsw.add(cambiarClave);
 
         jMenuBar1.add(mnuCambiarpsw);
@@ -232,11 +267,13 @@ public String nombreUsuaruio;
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAdminActionPerformed
-        // TODO add your handling code here:
+     Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
     }//GEN-LAST:event_eliminarAdminActionPerformed
 
     private void modificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAdminActionPerformed
-        // TODO add your handling code here:
+       Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
     }//GEN-LAST:event_modificarAdminActionPerformed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
@@ -275,6 +312,41 @@ public String nombreUsuaruio;
        Mostrar mostrar= new Mostrar();
        editable.setContentPane(mostrar);
     }//GEN-LAST:event_mostrarAdminActionPerformed
+
+    private void modificarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarProfesorActionPerformed
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarProfesorActionPerformed
+
+    private void modificarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarEstudiantesActionPerformed
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarEstudiantesActionPerformed
+
+    private void modificarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarInvitadosActionPerformed
+       Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarInvitadosActionPerformed
+
+    private void eliminarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProfesorActionPerformed
+      Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarProfesorActionPerformed
+
+    private void eliminarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEstudiantesActionPerformed
+       Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarEstudiantesActionPerformed
+
+    private void eliminarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarInvitadosActionPerformed
+     Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarInvitadosActionPerformed
+
+    private void cambiarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClaveActionPerformed
+        Cambiarcontrasena cambiar = new Cambiarcontrasena();
+        editable.setContentPane(cambiar);
+    }//GEN-LAST:event_cambiarClaveActionPerformed
 
     /**
      * @param args the command line arguments

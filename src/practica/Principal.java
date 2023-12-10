@@ -16,6 +16,6 @@ public class Principal {
     public static void main(String[] args) {
         Iniciosesion inicio =new Iniciosesion();
         inicio.setVisible(true);
-            }
+        }
     
 }
