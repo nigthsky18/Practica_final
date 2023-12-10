@@ -34,7 +34,7 @@ public class ManejoArchivo {
             String datos = registro.getNombreusuario() + ";" + registro.getPassword() + ";" + registro.getNombre() + ";" + registro.getFechaNacimiento() + ";" + registro.getCargo() + ";";
             escritor.write(datos);
             escritor.newLine();
-            JOptionPane.showMessageDialog(null, "Vendedor registrado correctamente", "Usuario registrado", 3);
+            JOptionPane.showMessageDialog(null, "Usuario registrado correctamente", "Usuario registrado", 3);
 
         } catch (IOException e)
         {
