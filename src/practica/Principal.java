@@ -14,6 +14,8 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        lista metodos = new lista();
+        metodos.abrirarchivo("src/practica/usuarios.txt");
         Iniciosesion inicio =new Iniciosesion();
         inicio.setVisible(true);
     }
