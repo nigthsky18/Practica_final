@@ -9,10 +9,14 @@ package practica;
  * @author Mariana M
  */
 public class Formularioprincipal extends javax.swing.JFrame {
-
+public String nombreUsuaruio;
     
     public Formularioprincipal() {
         initComponents();
+      this.setExtendedState(this.MAXIMIZED_BOTH);
+       
+        
+        
     }
 
     /**
@@ -26,13 +30,30 @@ public class Formularioprincipal extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        editable = new javax.swing.JInternalFrame();
+        bvnusuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuRegistrar = new javax.swing.JMenu();
+        registrar = new javax.swing.JMenuItem();
         mnuMatricular = new javax.swing.JMenu();
+        itmMatricular = new javax.swing.JMenuItem();
         mnuMostrar = new javax.swing.JMenu();
+        mostrarAdmin = new javax.swing.JMenuItem();
+        mostrarProfesores = new javax.swing.JMenuItem();
+        mostrarEstudiantes = new javax.swing.JMenuItem();
+        mostrarInvitados = new javax.swing.JMenuItem();
         mnuEliminar = new javax.swing.JMenu();
+        eliminarAdmin = new javax.swing.JMenuItem();
+        eliminarProfesor = new javax.swing.JMenuItem();
+        eliminarEstudiantes = new javax.swing.JMenuItem();
+        eliminarInvitados = new javax.swing.JMenuItem();
         mnuModificar = new javax.swing.JMenu();
+        modificarAdmin = new javax.swing.JMenuItem();
+        modificarProfesor = new javax.swing.JMenuItem();
+        modificarEstudiantes = new javax.swing.JMenuItem();
+        modificarInvitados = new javax.swing.JMenuItem();
         mnuCambiarpsw = new javax.swing.JMenu();
+        cambiarClave = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -41,23 +62,117 @@ public class Formularioprincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        editable.setVisible(true);
+
+        bvnusuario.setFont(new java.awt.Font("Yu Gothic UI Semilight", 3, 75)); // NOI18N
+        bvnusuario.setForeground(new java.awt.Color(0, 153, 153));
+        bvnusuario.setText(nombreUsuaruio);
+
+        javax.swing.GroupLayout editableLayout = new javax.swing.GroupLayout(editable.getContentPane());
+        editable.getContentPane().setLayout(editableLayout);
+        editableLayout.setHorizontalGroup(
+            editableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bvnusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
+        );
+        editableLayout.setVerticalGroup(
+            editableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editableLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(bvnusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+
         mnuRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario.png"))); // NOI18N
         mnuRegistrar.setText("Registrar usuarios");
+
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
+        mnuRegistrar.add(registrar);
+
         jMenuBar1.add(mnuRegistrar);
 
-        mnuMatricular.setText("Matricular Materias");
+        mnuMatricular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/matricular.png"))); // NOI18N
+        mnuMatricular.setText("Matricular ");
+
+        itmMatricular.setText("Ver profesores");
+        mnuMatricular.add(itmMatricular);
+
         jMenuBar1.add(mnuMatricular);
 
+        mnuMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mostrar.png"))); // NOI18N
         mnuMostrar.setText("Mostrar Usuarios");
+
+        mostrarAdmin.setText("Administradores");
+        mnuMostrar.add(mostrarAdmin);
+
+        mostrarProfesores.setText("Profesores");
+        mnuMostrar.add(mostrarProfesores);
+
+        mostrarEstudiantes.setText("Estudiantes");
+        mnuMostrar.add(mostrarEstudiantes);
+
+        mostrarInvitados.setText("Invitados");
+        mnuMostrar.add(mostrarInvitados);
+
         jMenuBar1.add(mnuMostrar);
 
+        mnuEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         mnuEliminar.setText("Eliminar");
+
+        eliminarAdmin.setText("Administradores");
+        eliminarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarAdminActionPerformed(evt);
+            }
+        });
+        mnuEliminar.add(eliminarAdmin);
+
+        eliminarProfesor.setText("Profesores");
+        mnuEliminar.add(eliminarProfesor);
+
+        eliminarEstudiantes.setText("Estudiantes");
+        mnuEliminar.add(eliminarEstudiantes);
+
+        eliminarInvitados.setText("Invitados");
+        mnuEliminar.add(eliminarInvitados);
+
         jMenuBar1.add(mnuEliminar);
 
+        mnuModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         mnuModificar.setText("Modificar");
+
+        modificarAdmin.setText("Administradores");
+        modificarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarAdminActionPerformed(evt);
+            }
+        });
+        mnuModificar.add(modificarAdmin);
+
+        modificarProfesor.setText("Profesores");
+        mnuModificar.add(modificarProfesor);
+
+        modificarEstudiantes.setText("Estudiantes");
+        mnuModificar.add(modificarEstudiantes);
+
+        modificarInvitados.setText("Invitados");
+        mnuModificar.add(modificarInvitados);
+
         jMenuBar1.add(mnuModificar);
 
+        mnuCambiarpsw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/clave.png"))); // NOI18N
         mnuCambiarpsw.setText("Cambiar contraseña");
+
+        cambiarClave.setText("Cambiar mi contraseña");
+        mnuCambiarpsw.add(cambiarClave);
+
         jMenuBar1.add(mnuCambiarpsw);
 
         setJMenuBar(jMenuBar1);
@@ -66,15 +181,36 @@ public class Formularioprincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editable)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editable)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void eliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarAdminActionPerformed
+
+    private void modificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificarAdminActionPerformed
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        bvnusuario.setVisible(false);
+        Registro registro = new Registro();
+        editable.setContentPane(registro);
+
+    }//GEN-LAST:event_registrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,8 +253,17 @@ public class Formularioprincipal extends javax.swing.JFrame {
             }
         });
     }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel bvnusuario;
+    private javax.swing.JMenuItem cambiarClave;
+    private javax.swing.JInternalFrame editable;
+    private javax.swing.JMenuItem eliminarAdmin;
+    private javax.swing.JMenuItem eliminarEstudiantes;
+    private javax.swing.JMenuItem eliminarInvitados;
+    private javax.swing.JMenuItem eliminarProfesor;
+    private javax.swing.JMenuItem itmMatricular;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -128,5 +273,14 @@ public class Formularioprincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuModificar;
     private javax.swing.JMenu mnuMostrar;
     private javax.swing.JMenu mnuRegistrar;
+    private javax.swing.JMenuItem modificarAdmin;
+    private javax.swing.JMenuItem modificarEstudiantes;
+    private javax.swing.JMenuItem modificarInvitados;
+    private javax.swing.JMenuItem modificarProfesor;
+    private javax.swing.JMenuItem mostrarAdmin;
+    private javax.swing.JMenuItem mostrarEstudiantes;
+    private javax.swing.JMenuItem mostrarInvitados;
+    private javax.swing.JMenuItem mostrarProfesores;
+    private javax.swing.JMenuItem registrar;
     // End of variables declaration//GEN-END:variables
 }
