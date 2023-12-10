@@ -1,4 +1,5 @@
-1,1,Administrador;
-mariana_montoya,1,Administrador;
+1;1;Mariana;31/12/1984;Administrador;
+mariana;1;Mariana;31/12/1984;Administrador;
 julian123;Julian213*;Julian Higuita;12/12/2000;Estudiante;
 camijdb;Juan2023*;Camilo Ramirez;31/12/1984;Administrador;
+oscar23;Oscar3084*;Oscar Betancour;30/11/1974;Profesor;

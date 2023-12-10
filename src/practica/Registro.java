@@ -82,6 +82,7 @@ public class Registro extends javax.swing.JInternalFrame {
             if (e.getSource() == registrarButton) {
                 if (registros.validarRegistro(this)) {
                     registros.escibirRegistro(this);
+                    limpiarCampos();
                 }
             }
         });
@@ -154,6 +155,8 @@ private void limpiarCampos() {
             if (registros.validarRegistro(this))
             {
                 registros.escibirRegistro(this);
+                
+                
             }
 
         }

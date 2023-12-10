@@ -6,9 +6,12 @@ package practica;
  */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ManejoArchivo {
@@ -79,7 +82,24 @@ public class ManejoArchivo {
 
         return true;
     }
-
+    public ArrayList<String[]> leerRegistros() {
+        ArrayList<String[]> registros = new ArrayList<>();
+        try ( BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(archivo))))
+        {
+            String linea;
+            while ((linea = lector.readLine()) != null)
+            {
+                String[] campos = linea.split(";");
+                
+                registros.add(campos);
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return registros;
+    }
+  
     public boolean validarIngreso(int usuarioIndex, int contraseñaIndex, int tipoIndex) {
         try
         {

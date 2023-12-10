@@ -102,6 +102,11 @@ public String nombreUsuaruio;
         mnuMatricular.setText("Matricular ");
 
         itmMatricular.setText("Ver profesores");
+        itmMatricular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmMatricularActionPerformed(evt);
+            }
+        });
         mnuMatricular.add(itmMatricular);
 
         jMenuBar1.add(mnuMatricular);
@@ -209,8 +214,13 @@ public String nombreUsuaruio;
         bvnusuario.setVisible(false);
         Registro registro = new Registro();
         editable.setContentPane(registro);
-
+        
     }//GEN-LAST:event_registrarActionPerformed
+
+    private void itmMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMatricularActionPerformed
+       Matricular matricula = new Matricular();
+       editable.setContentPane(matricula);
+    }//GEN-LAST:event_itmMatricularActionPerformed
 
     /**
      * @param args the command line arguments
