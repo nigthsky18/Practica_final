@@ -32,7 +32,7 @@ public class Matricular extends javax.swing.JInternalFrame {
 
         tablaMatricula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null}
             },
             new String [] {
                 "ID", "Profesor"
@@ -84,9 +84,11 @@ public class Matricular extends javax.swing.JInternalFrame {
 
     private void btnMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatricularActionPerformed
         ManejoArchivo matricula = new ManejoArchivo();
+        String profesor = null;
+        String estudiante = null;
+      
         
-        
-        //matricula.escibirRegistro(registro);
+        matricula.escibirMatricula(profesor,estudiante);
     }//GEN-LAST:event_btnMatricularActionPerformed
 
 

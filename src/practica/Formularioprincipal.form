@@ -63,21 +63,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Administradores"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarAdminActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mostrarProfesores">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profesores"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarProfesoresActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mostrarEstudiantes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Estudiantes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarEstudiantesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mostrarInvitados">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Invitados"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarInvitadosActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mostrarUsuarios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todos los usuarios"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarUsuariosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -42,6 +42,7 @@ public String nombreUsuaruio;
         mostrarProfesores = new javax.swing.JMenuItem();
         mostrarEstudiantes = new javax.swing.JMenuItem();
         mostrarInvitados = new javax.swing.JMenuItem();
+        mostrarUsuarios = new javax.swing.JMenuItem();
         mnuEliminar = new javax.swing.JMenu();
         eliminarAdmin = new javax.swing.JMenuItem();
         eliminarProfesor = new javax.swing.JMenuItem();
@@ -115,16 +116,44 @@ public String nombreUsuaruio;
         mnuMostrar.setText("Mostrar Usuarios");
 
         mostrarAdmin.setText("Administradores");
+        mostrarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarAdminActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarAdmin);
 
         mostrarProfesores.setText("Profesores");
+        mostrarProfesores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarProfesoresActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarProfesores);
 
         mostrarEstudiantes.setText("Estudiantes");
+        mostrarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarEstudiantes);
 
         mostrarInvitados.setText("Invitados");
+        mostrarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarInvitadosActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarInvitados);
+
+        mostrarUsuarios.setText("Todos los usuarios");
+        mostrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarUsuariosActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mostrarUsuarios);
 
         jMenuBar1.add(mnuMostrar);
 
@@ -222,6 +251,31 @@ public String nombreUsuaruio;
        editable.setContentPane(matricula);
     }//GEN-LAST:event_itmMatricularActionPerformed
 
+    private void mostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarUsuariosActionPerformed
+       Mostrar mostrar= new Mostrar();
+       editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarUsuariosActionPerformed
+
+    private void mostrarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarInvitadosActionPerformed
+        Mostrar mostrar= new Mostrar();
+       editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarInvitadosActionPerformed
+
+    private void mostrarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEstudiantesActionPerformed
+        Mostrar mostrar= new Mostrar();
+       editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarEstudiantesActionPerformed
+
+    private void mostrarProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarProfesoresActionPerformed
+        Mostrar mostrar= new Mostrar();
+       editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarProfesoresActionPerformed
+
+    private void mostrarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarAdminActionPerformed
+       Mostrar mostrar= new Mostrar();
+       editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,6 +345,7 @@ public String nombreUsuaruio;
     private javax.swing.JMenuItem mostrarEstudiantes;
     private javax.swing.JMenuItem mostrarInvitados;
     private javax.swing.JMenuItem mostrarProfesores;
+    private javax.swing.JMenuItem mostrarUsuarios;
     private javax.swing.JMenuItem registrar;
     // End of variables declaration//GEN-END:variables
 }
