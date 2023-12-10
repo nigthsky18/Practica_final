@@ -152,7 +152,7 @@ public class Iniciosesion extends javax.swing.JFrame {
             if ("Administrador".equals(tipoUsuario.getSelectedItem().toString()))
             {
                 ManejoArchivo ingreso = new ManejoArchivo(nombreUsuario.getText(), password, tipoUsuario.getSelectedItem().toString());
-                if (ingreso.validarIngreso(0, 1, 2))
+                if (ingreso.validarIngreso(0, 1, 4))
                 {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
                     this.setVisible(false);

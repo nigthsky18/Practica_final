@@ -37,9 +37,9 @@ public class lista {
         try ( BufferedReader bufferReader = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;
             while ((linea = bufferReader.readLine()) != null) {
-                String[] partes = linea.split(",");
+                String[] partes = linea.split(";");
                 String usuario = partes[0];
-                String cargo = partes[2];
+                String cargo = partes[4];
 
                 // Agregar nodos a las listas según el cargo
                 if ("Administrador".equalsIgnoreCase(cargo)) {
@@ -53,7 +53,7 @@ public class lista {
             }
 
             // Luego, iterar por el archivo de matrículas para vincular estudiantes a profesores
-            try ( BufferedReader matriculasReader = new BufferedReader(new FileReader(RUTA_ARCHIVO_MATRICULAS))) {
+            /*try ( BufferedReader matriculasReader = new BufferedReader(new FileReader(RUTA_ARCHIVO_MATRICULAS))) {
                 String matriculaLinea;
                 while ((matriculaLinea = matriculasReader.readLine()) != null) {
                     String[] partesMatricula = matriculaLinea.split(",");
@@ -64,7 +64,7 @@ public class lista {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         } catch (IOException e) {
             e.printStackTrace();
         }
