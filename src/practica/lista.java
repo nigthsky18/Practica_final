@@ -99,4 +99,20 @@ public class lista {
             temp.liga = nuevoNodo;
         }
     }
+
+    public void mostrarListas() {
+        mostrarLista(listaAdmins);
+        mostrarLista(listaProfesores);
+        mostrarLista(listaProfesores);
+    }
+
+    public void mostrarLista(lista lista) {
+        Nodo current = lista.head;
+        System.out.println("Usuarios:");
+        while (current != null) {
+            System.out.println("Usuario: " + current.getUsuario() + ", Cargo: " + current.getCargo());
+            current = current.getLiga();
+        }
+
+    }
 }

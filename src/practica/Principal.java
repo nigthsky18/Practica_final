@@ -16,6 +16,7 @@ public class Principal {
     public static void main(String[] args) {
         lista metodos = new lista();
         metodos.abrirarchivo("src/practica/usuarios.txt");
+        metodos.mostrarListas();
         Iniciosesion inicio =new Iniciosesion();
         inicio.setVisible(true);
     }
