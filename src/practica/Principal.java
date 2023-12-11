@@ -14,8 +14,10 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Iniciosesion inicio =new Iniciosesion();
-        inicio.setVisible(true);
-        }
+      Iniciosesion inicio =new Iniciosesion();
+       inicio.setVisible(true);
+        lista metodos = new lista();
+        metodos.abrirarchivo("src/practica/usuarios.txt");
+        metodos.mostrarListas();}
     
 }

@@ -6,3 +6,4 @@ oscar23;Oscar3084*;Oscar Betancour;30/11/1974;Profesor;
 juan21;Juan2012*;Juan Monsalve;10/03/2003;Invitado;123
 yo;Yo12345*;Yolanda Jimenes;12/12/2012;Invitado;2
 Sandra05;Sandra05*;Sandra Rojas;06/01/2004;Estudiante;4
+hugo12;Hugo1234*;Hugo Sanchez;30/11/1964;Profesor;12

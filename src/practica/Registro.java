@@ -187,6 +187,9 @@ public class Registro extends javax.swing.JInternalFrame {
             if (registros.validarRegistro(this))
             {
                 registros.escibirRegistro(this);
+//                Lista lista = new Lista();
+//                lista.abrirarchivo();
+//                lista.mostrarListas();
 
             }
 
