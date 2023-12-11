@@ -4,6 +4,7 @@
  */
 package practica;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,7 +22,6 @@ public class Matricular extends javax.swing.JInternalFrame {
         setVisible(true);
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -30,20 +30,29 @@ public class Matricular extends javax.swing.JInternalFrame {
         tablaMatricula = new javax.swing.JTable();
         btnMatricular = new javax.swing.JButton();
 
+        tablaMatricula.setBorder(new javax.swing.border.MatteBorder(null));
+        tablaMatricula.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         tablaMatricula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null}
             },
             new String [] {
-                "ID", "Profesor"
+                "Nombre", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(tablaMatricula);
@@ -84,13 +93,42 @@ public class Matricular extends javax.swing.JInternalFrame {
 
     private void btnMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatricularActionPerformed
         ManejoArchivo matricula = new ManejoArchivo();
-        String profesor = null;
-        String estudiante = null;
-      
-        
-        matricula.escibirMatricula(profesor,estudiante);
+        String profesor = obtenerProfesorSeleccionado();
+        String estudiante = JOptionPane.showInputDialog(null, "Ingresa el nombre del estudiante que matriculará con el docente", "Matricular", 3);
+        ManejoArchivo archivo= new ManejoArchivo();
+       if( archivo.validarEstudiante(estudiante))
+       {
+        matricula.escibirMatricula(profesor, estudiante);
+        JOptionPane.showMessageDialog(null, "Estudiante matriculado correctamente", "Validacion", 3);
+       }else
+       {
+           JOptionPane.showMessageDialog(null, "Ha ingresado un estudiarnte no registrado", "Validacion", 2);
+       }
     }//GEN-LAST:event_btnMatricularActionPerformed
 
+    public String obtenerProfesorSeleccionado() {
+    int filaSeleccionada = tablaMatricula.getSelectedRow();
+    if (filaSeleccionada >= 0) {
+        return tablaMatricula.getValueAt(filaSeleccionada, 0).toString();
+    }
+    return null; // Retorna null si no se selecciona ninguna fila
+}
+
+    public void cargarDatosTabla(lista listaProfesores) {
+        DefaultTableModel model = (DefaultTableModel) tablaMatricula.getModel();
+        model.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
+
+        Nodo current = listaProfesores.getHead();
+        while (current != null)
+        {
+            // Agregar cada profesor a la tabla
+            model.addRow(new Object[]
+            {
+                current.getUsuario(), current.getCargo()
+            });
+            current = current.getLiga();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMatricular;
@@ -99,16 +137,5 @@ public class Matricular extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    
-    
-    
-    public void cargarDatosDesdeString(DefaultTableModel modeloTabla, String datosString) {
-    
-    String[] filas = datosString.split("\n");
-    
-    for (String fila : filas) {
-        String[] valores = fila.split(";");
-        modeloTabla.addRow(valores);
-    }
-}
+
 }

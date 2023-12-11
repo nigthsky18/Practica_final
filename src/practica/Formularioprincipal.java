@@ -295,6 +295,10 @@ public class Formularioprincipal extends javax.swing.JFrame {
 
     private void itmMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMatricularActionPerformed
         Matricular matricula = new Matricular();
+        lista l= new lista();
+        l.abrirarchivo("src/practica/usuarios.txt");
+        
+        matricula.cargarDatosTabla(l.listaProfesores);
         editable.setContentPane(matricula);
     }//GEN-LAST:event_itmMatricularActionPerformed
 

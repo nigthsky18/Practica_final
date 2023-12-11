@@ -5,6 +5,8 @@ public class Nodo {
     private int tag;
     private String cargo;
     private String usuario;
+    private String nombre;
+    private String id;
     Nodo liga; 
     Nodo subLista; 
 
@@ -12,6 +14,7 @@ public class Nodo {
         this.tag=tag;
         this.cargo = cargo;
         this.usuario = usuario;
+        
         this.liga = null;
         this.subLista = null;
     }
@@ -55,4 +58,21 @@ public class Nodo {
     public void setSubLista(Nodo subLista) {
         this.subLista = subLista;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 }
