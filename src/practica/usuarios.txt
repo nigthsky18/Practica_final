@@ -1,4 +1,4 @@
-1;1;Mariana;31/12/1984;Administrador;2;
+1,2,Mariana,31/12/1984,Administrador,2
 mariana;1;Mariana;31/12/1984;Administrador;1;
 julian123;Julian213*;Julian Higuita;12/12/2000;Estudiante;
 camijdb;Juan2023*;Camilo Ramirez;31/12/1984;Administrador;

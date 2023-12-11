@@ -23,6 +23,7 @@ public class lista {
     lista listaAdmins;
     lista listaProfesores;
     lista listaInvitados;
+    lista listaEstudiantes;
     private static final String RUTA_ARCHIVO = "src/practica/usuarios.txt";
     private static final String RUTA_ARCHIVO_MATRICULAS = "src/practica/matricula.txt";
 
@@ -30,6 +31,7 @@ public class lista {
         listaAdmins = new lista();
         listaProfesores = new lista();
         listaInvitados = new lista();
+        listaEstudiantes = new lista();
         try ( BufferedReader bufferReader = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;
             while ((linea = bufferReader.readLine()) != null) {
@@ -45,6 +47,8 @@ public class lista {
                     listaProfesores.AgregarNodo(cargo, usuario);
                 } else if ("Invitado".equalsIgnoreCase(cargo)) {
                     listaInvitados.AgregarNodo(cargo, usuario);
+                }else if ("Estudiante".equalsIgnoreCase(cargo)) {
+                    listaEstudiantes.AgregarNodo(cargo, usuario);
                 }
             }
 
@@ -97,15 +101,20 @@ public class lista {
     }
 
     public void mostrarListas() {
+        System.out.println("Administradores");
         mostrarLista(listaAdmins);
+        System.out.println("Profesores:");
         mostrarLista(listaProfesores);
+        System.out.println("Estudiantes:");
+        mostrarLista(listaEstudiantes);
+        System.out.println("Invitados:");
         mostrarLista(listaInvitados);
+        
         
     }
 
     public void mostrarLista(lista lista) {
         Nodo current = lista.head;
-        System.out.println("Usuarios:");
         while (current != null) {
             System.out.println("Usuario: " + current.getUsuario() + ", Cargo: " + current.getCargo());
             current = current.getLiga();
