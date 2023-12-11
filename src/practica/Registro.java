@@ -18,7 +18,7 @@ public class Registro extends javax.swing.JInternalFrame {
     private JButton registrarButton;
     private JButton limpiarButton;
     private ManejoArchivo registros = new ManejoArchivo();
-    private String usuarioRegistrador;
+    private String usuarioRegistrador="Administrador";
 
     public Registro(String rol) {
         setTitle("Registro de Usuarios");
