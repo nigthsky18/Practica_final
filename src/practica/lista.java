@@ -24,7 +24,7 @@ public class lista {
     lista listaProfesores;
     lista listaInvitados;
     private static final String RUTA_ARCHIVO = "src/practica/usuarios.txt";
-    private static final String RUTA_ARCHIVO_MATRICULAS = "Matriculas.txt";
+    private static final String RUTA_ARCHIVO_MATRICULAS = "src/practica/matricula.txt";
 
     public void abrirarchivo(String nombreArchivo) {
         listaAdmins = new lista();
@@ -34,7 +34,7 @@ public class lista {
             String linea;
             while ((linea = bufferReader.readLine()) != null) {
                 String[] partes = linea.split(";");
-                String usuario = partes[0];
+                String usuario = partes[2];
                 String cargo = partes[4];
 
                 // Agregar nodos a las listas según el cargo
@@ -48,14 +48,14 @@ public class lista {
                 }
             }
 
-            // Luego, iterar por el archivo de matrículas para vincular estudiantes a profesores
+//             Luego, iterar por el archivo de matrículas para vincular estudiantes a profesores
             /*try ( BufferedReader matriculasReader = new BufferedReader(new FileReader(RUTA_ARCHIVO_MATRICULAS))) {
                 String matriculaLinea;
                 while ((matriculaLinea = matriculasReader.readLine()) != null) {
                     String[] partesMatricula = matriculaLinea.split(",");
                     String usuarioProfesor = partesMatricula[0].trim();
                     String usuarioEstudiante = partesMatricula[1].trim();
-                    // Utilizar el método modificado para agregar estudiantes con sublista a profesores
+                     Utilizar el método modificado para agregar estudiantes con sublista a profesores
                     listaProfesores.AgregarNodoConSublista(usuarioEstudiante, usuarioProfesor);
                 }
             } catch (IOException e) {
@@ -99,7 +99,8 @@ public class lista {
     public void mostrarListas() {
         mostrarLista(listaAdmins);
         mostrarLista(listaProfesores);
-        mostrarLista(listaProfesores);
+        mostrarLista(listaInvitados);
+        
     }
 
     public void mostrarLista(lista lista) {

@@ -64,6 +64,7 @@ public class ManejoArchivo {
         }
     }
 
+
     
     public void escibirInvitado(RegistroInvitados registro) {
         try ( BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true)))
@@ -205,6 +206,24 @@ public class ManejoArchivo {
             System.err.println("Error: No se pudo leer el archivo '" + archivo + "'.");
             return false;
         }
+    }
+    public boolean validarEstudiante(String nombre) {
+        try (BufferedReader bufferReader = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = bufferReader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                if (partes.length >= 5) { 
+                    String campo2 = partes[2].trim();
+                    String campo4 = partes[4].trim();
+                    if (campo2.equalsIgnoreCase(nombre) && campo4.equalsIgnoreCase("Estudiante")) {
+                        return true; // Se encontró un estudiante con ambos campos como "Estudiante"
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false; // No se encontró ninguna línea que cumpla con las condiciones
     }
 
       public void modificarRegistros(Registro registro) {
