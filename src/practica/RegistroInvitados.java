@@ -105,7 +105,7 @@ public class RegistroInvitados extends javax.swing.JFrame {
                         .addComponent(Registrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Cancelar))
-                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                     .addComponent(Contrasena)
                     .addComponent(Id)
                     .addComponent(nombre)

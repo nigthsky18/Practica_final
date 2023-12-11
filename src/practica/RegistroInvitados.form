@@ -41,7 +41,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="Cancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="fechaNacimiento" pref="255" max="32767" attributes="0"/>
+                  <Component id="fechaNacimiento" pref="257" max="32767" attributes="0"/>
                   <Component id="Contrasena" max="32767" attributes="0"/>
                   <Component id="Id" alignment="0" max="32767" attributes="0"/>
                   <Component id="nombre" alignment="0" max="32767" attributes="0"/>
