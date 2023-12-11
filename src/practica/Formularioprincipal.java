@@ -9,14 +9,14 @@ package practica;
  * @author Mariana M
  */
 public class Formularioprincipal extends javax.swing.JFrame {
-public String nombreUsuaruio;
-    
+
+    public String nombreUsuaruio;
+    public String tipoUsuaruio;
+
     public Formularioprincipal() {
         initComponents();
-      this.setExtendedState(this.MAXIMIZED_BOTH);
-       
-        
-        
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+
     }
 
     /**
@@ -42,6 +42,7 @@ public String nombreUsuaruio;
         mostrarProfesores = new javax.swing.JMenuItem();
         mostrarEstudiantes = new javax.swing.JMenuItem();
         mostrarInvitados = new javax.swing.JMenuItem();
+        mostrarUsuarios = new javax.swing.JMenuItem();
         mnuEliminar = new javax.swing.JMenu();
         eliminarAdmin = new javax.swing.JMenuItem();
         eliminarProfesor = new javax.swing.JMenuItem();
@@ -102,6 +103,11 @@ public String nombreUsuaruio;
         mnuMatricular.setText("Matricular ");
 
         itmMatricular.setText("Ver profesores");
+        itmMatricular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmMatricularActionPerformed(evt);
+            }
+        });
         mnuMatricular.add(itmMatricular);
 
         jMenuBar1.add(mnuMatricular);
@@ -110,16 +116,44 @@ public String nombreUsuaruio;
         mnuMostrar.setText("Mostrar Usuarios");
 
         mostrarAdmin.setText("Administradores");
+        mostrarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarAdminActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarAdmin);
 
         mostrarProfesores.setText("Profesores");
+        mostrarProfesores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarProfesoresActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarProfesores);
 
         mostrarEstudiantes.setText("Estudiantes");
+        mostrarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarEstudiantes);
 
         mostrarInvitados.setText("Invitados");
+        mostrarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarInvitadosActionPerformed(evt);
+            }
+        });
         mnuMostrar.add(mostrarInvitados);
+
+        mostrarUsuarios.setText("Todos los usuarios");
+        mostrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarUsuariosActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mostrarUsuarios);
 
         jMenuBar1.add(mnuMostrar);
 
@@ -135,12 +169,27 @@ public String nombreUsuaruio;
         mnuEliminar.add(eliminarAdmin);
 
         eliminarProfesor.setText("Profesores");
+        eliminarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProfesorActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarProfesor);
 
         eliminarEstudiantes.setText("Estudiantes");
+        eliminarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarEstudiantes);
 
         eliminarInvitados.setText("Invitados");
+        eliminarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarInvitadosActionPerformed(evt);
+            }
+        });
         mnuEliminar.add(eliminarInvitados);
 
         jMenuBar1.add(mnuEliminar);
@@ -157,12 +206,27 @@ public String nombreUsuaruio;
         mnuModificar.add(modificarAdmin);
 
         modificarProfesor.setText("Profesores");
+        modificarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarProfesorActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarProfesor);
 
         modificarEstudiantes.setText("Estudiantes");
+        modificarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarEstudiantesActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarEstudiantes);
 
         modificarInvitados.setText("Invitados");
+        modificarInvitados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarInvitadosActionPerformed(evt);
+            }
+        });
         mnuModificar.add(modificarInvitados);
 
         jMenuBar1.add(mnuModificar);
@@ -171,6 +235,11 @@ public String nombreUsuaruio;
         mnuCambiarpsw.setText("Cambiar contraseña");
 
         cambiarClave.setText("Cambiar mi contraseña");
+        cambiarClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarClaveActionPerformed(evt);
+            }
+        });
         mnuCambiarpsw.add(cambiarClave);
 
         jMenuBar1.add(mnuCambiarpsw);
@@ -198,19 +267,96 @@ public String nombreUsuaruio;
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAdminActionPerformed
-        // TODO add your handling code here:
+        Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+
     }//GEN-LAST:event_eliminarAdminActionPerformed
 
     private void modificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAdminActionPerformed
-        // TODO add your handling code here:
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
     }//GEN-LAST:event_modificarAdminActionPerformed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         bvnusuario.setVisible(false);
-        Registro registro = new Registro();
-        editable.setContentPane(registro);
+         
+        if (tipoUsuaruio == "Profesor")
+        {
+            Registro registro = new Registro(tipoUsuaruio);
+            editable.setContentPane(registro);
+        } else
+        {
+            Registro registro = new Registro();
+            editable.setContentPane(registro);
+        }
+        
 
     }//GEN-LAST:event_registrarActionPerformed
+
+    private void itmMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMatricularActionPerformed
+        Matricular matricula = new Matricular();
+        editable.setContentPane(matricula);
+    }//GEN-LAST:event_itmMatricularActionPerformed
+
+    private void mostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarUsuariosActionPerformed
+        Mostrar mostrar = new Mostrar();
+        editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarUsuariosActionPerformed
+
+    private void mostrarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarInvitadosActionPerformed
+        Mostrar mostrar = new Mostrar();
+        editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarInvitadosActionPerformed
+
+    private void mostrarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEstudiantesActionPerformed
+        Mostrar mostrar = new Mostrar();
+        editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarEstudiantesActionPerformed
+
+    private void mostrarProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarProfesoresActionPerformed
+        Mostrar mostrar = new Mostrar();
+        editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarProfesoresActionPerformed
+
+    private void mostrarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarAdminActionPerformed
+        Mostrar mostrar = new Mostrar();
+        editable.setContentPane(mostrar);
+    }//GEN-LAST:event_mostrarAdminActionPerformed
+
+    private void modificarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarProfesorActionPerformed
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarProfesorActionPerformed
+
+    private void modificarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarEstudiantesActionPerformed
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarEstudiantesActionPerformed
+
+    private void modificarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarInvitadosActionPerformed
+        Modificar modificar = new Modificar();
+        editable.setContentPane(modificar);
+    }//GEN-LAST:event_modificarInvitadosActionPerformed
+
+    private void eliminarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProfesorActionPerformed
+        Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarProfesorActionPerformed
+
+    private void eliminarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEstudiantesActionPerformed
+        Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarEstudiantesActionPerformed
+
+    private void eliminarInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarInvitadosActionPerformed
+        Eliminar eliminar = new Eliminar();
+        editable.setContentPane(eliminar);
+    }//GEN-LAST:event_eliminarInvitadosActionPerformed
+
+    private void cambiarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClaveActionPerformed
+        Cambiarcontrasena cambiar = new Cambiarcontrasena();
+        editable.setContentPane(cambiar);
+    }//GEN-LAST:event_cambiarClaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,34 +399,35 @@ public String nombreUsuaruio;
             }
         });
     }
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel bvnusuario;
     private javax.swing.JMenuItem cambiarClave;
     private javax.swing.JInternalFrame editable;
-    private javax.swing.JMenuItem eliminarAdmin;
+    public javax.swing.JMenuItem eliminarAdmin;
     private javax.swing.JMenuItem eliminarEstudiantes;
-    private javax.swing.JMenuItem eliminarInvitados;
-    private javax.swing.JMenuItem eliminarProfesor;
+    public javax.swing.JMenuItem eliminarInvitados;
+    public javax.swing.JMenuItem eliminarProfesor;
     private javax.swing.JMenuItem itmMatricular;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu mnuCambiarpsw;
-    private javax.swing.JMenu mnuEliminar;
-    private javax.swing.JMenu mnuMatricular;
+    public javax.swing.JMenu mnuEliminar;
+    public javax.swing.JMenu mnuMatricular;
     private javax.swing.JMenu mnuModificar;
     private javax.swing.JMenu mnuMostrar;
-    private javax.swing.JMenu mnuRegistrar;
-    private javax.swing.JMenuItem modificarAdmin;
-    private javax.swing.JMenuItem modificarEstudiantes;
-    private javax.swing.JMenuItem modificarInvitados;
-    private javax.swing.JMenuItem modificarProfesor;
-    private javax.swing.JMenuItem mostrarAdmin;
-    private javax.swing.JMenuItem mostrarEstudiantes;
-    private javax.swing.JMenuItem mostrarInvitados;
-    private javax.swing.JMenuItem mostrarProfesores;
+    public javax.swing.JMenu mnuRegistrar;
+    public javax.swing.JMenuItem modificarAdmin;
+    public javax.swing.JMenuItem modificarEstudiantes;
+    public javax.swing.JMenuItem modificarInvitados;
+    public javax.swing.JMenuItem modificarProfesor;
+    public javax.swing.JMenuItem mostrarAdmin;
+    public javax.swing.JMenuItem mostrarEstudiantes;
+    public javax.swing.JMenuItem mostrarInvitados;
+    public javax.swing.JMenuItem mostrarProfesores;
+    public javax.swing.JMenuItem mostrarUsuarios;
     private javax.swing.JMenuItem registrar;
     // End of variables declaration//GEN-END:variables
 }

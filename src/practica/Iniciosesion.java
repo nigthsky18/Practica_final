@@ -156,24 +156,109 @@ public class Iniciosesion extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
                     this.setVisible(false);
-                        
-                        Formularioprincipal principal = new Formularioprincipal();
-                        principal.bvnusuario.setText("¡Bienvenido (a) "+nombreUsuario.getText()+"!");
+
+                    Formularioprincipal principal = new Formularioprincipal();
+                    principal.bvnusuario.setText("¡Bienvenido (a) " + nombreUsuario.getText() + "!");
                     principal.setVisible(true);
                 } else
                 {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
                 }
+            } else
+            {
+                if ("Invitado".equals(tipoUsuario.getSelectedItem().toString()))
+                {
+                    ManejoArchivo ingreso = new ManejoArchivo(nombreUsuario.getText(), password, tipoUsuario.getSelectedItem().toString());
+                    if (ingreso.validarIngreso(0, 1, 4))
+                    {
+                        JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                        this.setVisible(false);
+
+                        Formularioprincipal principal = new Formularioprincipal();
+                        principal.mnuEliminar.setVisible(false);
+                        principal.modificarAdmin.setVisible(false);
+                        principal.modificarEstudiantes.setVisible(false);
+                        principal.mostrarProfesores.setVisible(false);
+                        principal.modificarProfesor.setVisible(false);
+                        principal.mnuMatricular.setVisible(false);
+                        principal.mostrarUsuarios.setVisible(false);
+                        principal.mnuRegistrar.setVisible(false);
+                        principal.mostrarAdmin.setVisible(false);
+                        principal.mostrarEstudiantes.setVisible(false);
+                        principal.mostrarProfesores.setVisible(false);
+                        principal.bvnusuario.setText("¡Bienvenido (a) " + nombreUsuario.getText() + "!");
+                        principal.setVisible(true);
+                    } else
+                    {
+                        JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Vlidacion", 0);
+                    }
+                } else
+                {
+                    if ("Estudiante".equals(tipoUsuario.getSelectedItem().toString()))
+                    {
+                        ManejoArchivo ingreso = new ManejoArchivo(nombreUsuario.getText(), password, tipoUsuario.getSelectedItem().toString());
+                        if (ingreso.validarIngreso(0, 1, 4))
+                        {
+                            JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                            this.setVisible(false);
+
+                            Formularioprincipal principal = new Formularioprincipal();
+                            principal.mnuEliminar.setVisible(false);
+                            principal.modificarAdmin.setVisible(false);
+                            principal.mostrarInvitados.setVisible(false);
+                            principal.modificarProfesor.setVisible(false);
+                            principal.mostrarUsuarios.setVisible(false);
+                            principal.mnuRegistrar.setVisible(false);
+                            principal.mostrarAdmin.setVisible(false);
+                            principal.modificarInvitados.setVisible(false);
+                            principal.mostrarEstudiantes.setVisible(true);
+                            principal.bvnusuario.setText("¡Bienvenido (a) " + nombreUsuario.getText() + "!");
+                            principal.setVisible(true);
+                        } else
+                        {
+                            JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Validacion", 0);
+                        }
+                    } else
+                    {
+                        if ("Profesor".equals(tipoUsuario.getSelectedItem().toString()))
+                        {
+                            ManejoArchivo ingreso = new ManejoArchivo(nombreUsuario.getText(), password, tipoUsuario.getSelectedItem().toString());
+                            if (ingreso.validarIngreso(0, 1, 4))
+                            {
+                                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso", "Validacion", 3);
+                                this.setVisible(false);
+
+                                Formularioprincipal principal = new Formularioprincipal();
+                                principal.tipoUsuaruio="Profesor";
+                                principal.modificarAdmin.setVisible(false);
+                                principal.mostrarInvitados.setVisible(false);
+                                principal.mostrarUsuarios.setVisible(false);
+                                principal.mostrarAdmin.setVisible(false);
+                                principal.modificarInvitados.setVisible(false);
+                                principal.eliminarAdmin.setVisible(false);
+                                principal.eliminarProfesor.setVisible(false);
+                                principal.eliminarInvitados.setVisible(false);
+                                principal.mnuMatricular.setVisible(false);
+                                principal.mostrarEstudiantes.setVisible(true);
+                                principal.bvnusuario.setText("¡Bienvenido (a) " + nombreUsuario.getText() + "!");
+                                principal.setVisible(true);
+                            } else
+                            {
+                                JOptionPane.showMessageDialog(null, "Inicio de sesión fallido. Verifica tus credenciales.", "Validacion", 0);
+                            }
+                        }
+                    }
+                }
             }
         }
-
 
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnInvitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadosActionPerformed
-        Registro registro = new  Registro();
-        registro.setVisible(true);
-        
+        RegistroInvitados invitado = new RegistroInvitados();
+        this.setVisible(false);
+        invitado.setVisible(true);
+
     }//GEN-LAST:event_btnInvitadosActionPerformed
 
     /**
@@ -236,7 +321,7 @@ private boolean validarDatos() {
         if (nombre.isEmpty() || password.isEmpty())
         {
 
-            JOptionPane.showMessageDialog(null, "Por favor ingresa todos los datos.", "Vlidación", 2);
+            JOptionPane.showMessageDialog(null, "Por favor ingresa todos los datos.", "Validación", 2);
             return false; // Los campos están vacíos
         }
 

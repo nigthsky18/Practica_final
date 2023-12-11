@@ -19,6 +19,6 @@ public class Principal {
         metodos.mostrarListas();
         Iniciosesion inicio =new Iniciosesion();
         inicio.setVisible(true);
-    }
+        }
     
 }

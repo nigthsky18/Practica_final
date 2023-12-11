@@ -1,3 +1,8 @@
+1;1;Mariana;31/12/1984;Administrador;2;
+mariana;1;Mariana;31/12/1984;Administrador;1;
 julian123;Julian213*;Julian Higuita;12/12/2000;Estudiante;
 camijdb;Juan2023*;Camilo Ramirez;31/12/1984;Administrador;
-santiago;santiago27;santiago garcia;31/12/1984;Administrador;
+oscar23;Oscar3084*;Oscar Betancour;30/11/1974;Profesor;
+juan21;Juan2012*;Juan Monsalve;10/03/2003;Invitado;123
+yo;Yo12345*;Yolanda Jimenes;12/12/2012;Invitado;2
+Sandra05;Sandra05*;Sandra Rojas;06/01/2004;Estudiante;4

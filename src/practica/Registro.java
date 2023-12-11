@@ -18,6 +18,19 @@ public class Registro extends javax.swing.JInternalFrame {
     private JButton registrarButton;
     private JButton limpiarButton;
     private ManejoArchivo registros = new ManejoArchivo();
+    private String usuarioRegistrador="Administrador";
+
+    public Registro(String rol) {
+        setTitle("Registro de Usuarios");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 300);
+        setLayout(null);
+        usuarioRegistrador = rol;
+
+        initComponents(); // Inicialización de los componentes
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).setNorthPane(null);
+        setVisible(true);
+    }
 
     public Registro() {
         setTitle("Registro de Usuarios");
@@ -63,7 +76,20 @@ public class Registro extends javax.swing.JInternalFrame {
         cargoLabel.setBounds(20, 220, 120, 25);
         add(cargoLabel);
 
-        String[] opcionesCargo = {"Administrador", "Estudiante", "Profesor", "Invitado"};
+        String[] opcionesCargo;
+        if (usuarioRegistrador.equals("Profesor"))
+        {
+            opcionesCargo = new String[]
+            {
+                "Estudiante"
+            };
+        } else
+        {
+            opcionesCargo = new String[]
+            {
+                "Administrador", "Estudiante", "Profesor", "Invitado"
+            };
+        }
         cargoComboBox = new JComboBox<>(opcionesCargo);
         cargoComboBox.setBounds(180, 220, 300, 35); // Aumentar el tamaño del combo box
         add(cargoComboBox);
@@ -78,10 +104,14 @@ public class Registro extends javax.swing.JInternalFrame {
         registrarButton = new JButton("Registrar");
         registrarButton.setBounds(180, 320, 120, 35);
         add(registrarButton);
-        registrarButton.addActionListener((e) -> {
-            if (e.getSource() == registrarButton) {
-                if (registros.validarRegistro(this)) {
+        registrarButton.addActionListener((e) ->
+        {
+            if (e.getSource() == registrarButton)
+            {
+                if (registros.validarRegistro(this))
+                {
                     registros.escibirRegistro(this);
+                    limpiarCampos();
                 }
             }
         });
@@ -89,11 +119,13 @@ public class Registro extends javax.swing.JInternalFrame {
         limpiarButton = new JButton("Limpiar");
         limpiarButton.setBounds(360, 320, 120, 35);
         add(limpiarButton);
-        limpiarButton.addActionListener((e) -> {
+        limpiarButton.addActionListener((e) ->
+        {
             limpiarCampos();
         });
-}
-private void limpiarCampos() {
+    }
+
+    private void limpiarCampos() {
         nombreUsuarioField.setText("");
         idField.setText("");
         nombreField.setText("");
@@ -101,6 +133,7 @@ private void limpiarCampos() {
         cargoComboBox.setSelectedIndex(0);
         passwordField.setText("");
     }
+
     public String getNombreusuario() {
         return nombreUsuarioField.getText();
     }
@@ -110,7 +143,7 @@ private void limpiarCampos() {
     }
 
     public String getId() {
-        return idField.toString();
+        return idField.getText();
     }
 
     public void setIdField(JTextField idField) {
@@ -154,6 +187,7 @@ private void limpiarCampos() {
             if (registros.validarRegistro(this))
             {
                 registros.escibirRegistro(this);
+
             }
 
         }
