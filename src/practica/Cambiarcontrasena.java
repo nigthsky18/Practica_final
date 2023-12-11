@@ -5,6 +5,10 @@
 package practica;
 
 import javax.swing.JOptionPane;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -87,7 +91,39 @@ public class Cambiarcontrasena extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+       String usuario;
+       String contraseña_nueva;
+       String contraseña_actualpp;
+       String nombreArchivo="src/practica/usuarios.txt";
+       usuario=JOptionPane.showInputDialog("su usuario");
+       contraseña_actualpp=JOptionPane.showInputDialog("contraseña actual ");
+       contraseña_nueva=JOptionPane.showInputDialog("nueva contraseña");
+       try ( BufferedReader bufferReader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            StringBuilder fileContent = new StringBuilder();
+            while ((linea = bufferReader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                String user = partes[0].trim();
+                String contraseña_actual = partes[1].trim();
+                if (contraseña_actual.equals(contraseña_actualpp) && usuario.equals(user)) {
+                    // Modifica el campo correspondiente
+                    partes[1] = contraseña_nueva;
+                    // Reconstruye la línea con los cambios
+                    String nuevaLinea = String.join(",", partes);
+                    fileContent.append(nuevaLinea).append("\n");
+                } else {
+                    fileContent.append(linea).append("\n");
+                }
+            }
+            try (FileWriter fileWriter = new FileWriter(nombreArchivo)) {
+                fileWriter.write(fileContent.toString());
+                JOptionPane.showMessageDialog(null, "Contraseña cambiada exitosamente");
+            }
+            } catch (IOException e) {
+            e.printStackTrace();
+        }
        JOptionPane.showMessageDialog(null, "La contraseña se restablecido con éxito", "Eliminar", 3);
+       
     }//GEN-LAST:event_btnCambiarActionPerformed
 
 
